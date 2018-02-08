@@ -17,12 +17,6 @@
 </style>
 <template>
   <view class="container">
-    <view class="userinfo" @tap="handleViewTap">
-      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover" />
-      <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
-    </view>
-
-    <toast />
   </view>
 </template>
 
@@ -35,7 +29,7 @@ import List from '../components/list' // aliasFields example
 import moduleA from 'module-a' // aliasFields ignore module example
 import Group from '../components/group'
 import Toast from 'wepy-com-toast'
-import testMixin from '../mixins/test'
+// import testMixin from '../mixins/test'
 
 console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
 
@@ -52,7 +46,7 @@ console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
 })
 export default class Index extends wepy.page {
   config = {
-    navigationBarTitleText: 'HR报考微官网'
+    navigationBarTitleText: 'test'
   }
   components = {
     panel: Panel,
@@ -63,7 +57,7 @@ export default class Index extends wepy.page {
     toast: Toast
   }
 
-  mixins = [testMixin]
+  // mixins = [testMixin]
 
   data = {
     mynum: 20,
@@ -133,6 +127,9 @@ export default class Index extends wepy.page {
   methods = {
     plus() {
       this.mynum++
+    },
+    handleViewTap() {
+      console.log(666)
     },
     toast() {
       let promise = this.$invoke('toast', 'show', {
